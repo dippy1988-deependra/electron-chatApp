@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<body>
+<!-- **********Login Section ************-->
+<div class="login-wrapper">
+    <div class="shadow bg-white rounded">
+        <center class="mb-2">
+            <img src="./assets/img/logo.png" alt="logo">
+        </center>
+        <h3 class="text-center">Welcome  To Medical Society</h3>
+        <p class="text-center">Sign in to your account</p>
+        
+        <div class="form-group">
+            <input type="text" class="form-control" id="loginUserName"  placeholder="Enter Useranme"><br>
+            <input type="text" class="form-control" id="loginUserPwd"  placeholder="Enter Password"><br>
+            <button  class="btn btn-primary" id="userLoginSession">Login</button>
+        </div>
+        <center>
+            <div class="alert alert-danger" role="alert" style="display:none">
+                <span id="errorMessage"></span>
+            </div>
+        </center>
+        <center>
+            <div class="spinner-border text-success" role="status" style="display:none">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </center>
+    </div>
+</div><!-- **********End Login Section ************-->
+
+<!--********** Chat Wrapper **********-->
+<div class="chat-wrapper">
+    <div class="flex-fixed-width-item">
+        <!-- Header user details -->
+        <div class="px-2 py-2 recentChatsUserDetails">
+            <div>
+                <img src="./assets/img/placeholder-female-square.png" alt="userImg" class="userImage">
+            </div>
+            <div class="userName">
+                <span id="userName"></span>
+                <span>online</span>
+            </div>
+            <i class="fa fa-bell setting-Icon" aria-hidden="true"></i>
+
+            <!-- SETTING BUTTON DROPDOWN -->
+            <div class="dropdown">
+                <button type="button" class="btndropdown-toggle logoutBtn" data-toggle="dropdown">
+                 <i class="fa fa-cog setting-Icon" aria-hidden="true" ></i>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" onclick="showModal()">Profile</a>
+                  <a class="dropdown-item" href="#" id="logoutChat">Logout</a>
+                </div>
+            </div>
+            
+            
+        </div> <!--End header user details -->
+
+        <!-- recent chat list -->
+        <div class="recent-chat-list">
+            <div class="tab">
+                <button class="tablinks" onclick="tabList(event, 'chat');" id="defaultOpen">
+                    <img src="./assets/img/IC_CHATS_enable.png" alt="">
+                    <p class="m-0 chatIcon">Chats</p>
+                </button>
+                <button class="tablinks" onclick="tabList(event, 'call')">
+                    <img src="./assets/img/IC_CALLS_enable.png" alt="">
+                    <p class="m-0 chatIcon">Calls</p>
+                </button>
+            </div>
+            <div id="chat" class="tabcontent">
+                <ul class="px-0" id="RecentChatUserList"></ul>
+            </div>
+              
+            <div id="call" class="tabcontent">
+                <h3>calls</h3>
+            </div>
+        </div><!--end recent chat list -->
+    </div>
+    <div class="chat-section">
+        <!--********** CHAT HEADER **********-->
+        <div class="chat-message-header px-3" style="display: none">
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <p class="m-0 text-capitalize" id="chatListUserName"></p>
+                    <small>Last Seen</small>
+                </div>
+                <!-- INCOMMING CALL -->
+                <div class="col-md-6 receiverCallWrapper" id="incommingUserCall">
+                    <img src="./assets/img/ic_user_image.png" alt="user image">
+                    <span class="text-white"><span class="text-white" id="incommingCallCallerName"> flex john </span> is calling...</span>
+                    <img src="./assets/img/ic_call_pick.png" alt="" id="acceptCall">
+                    <img src="./assets/img/ic_call_cut.png" alt="" id="callReject">
+                    <video  id="remoteVideo"></video>
+                    
+                </div>
+                <div class="col-md-3 text-right">
+                    <img src="./assets/img/ic_disable_video.png" alt="" id="myImg" onmouseover = "enableVedioCall()" onmouseout= "disableVideocall()">
+                    <img src="./assets/img/ic_disable_call.png" alt="" id="myImg1" onmouseover = "enableAudioCall()" onmouseout= "disableAudiocall()" class="voiceCall"> 
+                </div>
+            </div>
+        </div><!--END CHAT HEADER -->
+
+       <!--********** CHAT MESSAGE **********-->
+       <div class="px-3 chat-message py-3" id="chatParentWrapper">
+            <div class="chat-blank-wrapper">
+                <center><h1>WELCOME  &nbsp;<span id="loginUserNameDispaly"></span></h1></center><br>
+                <div>
+                    <img src="./assets/img/placeholder-female-square.png" alt="" width="140px" height="140px" style="border-radius: 50%">
+                </div>
+            </div>
+        </div><!--END CHAT MESSAGE -->
+
+       <!--********** CHAT MESSAGE SEND SECTION **********-->
+        <div class="type-message-wrapper px-3" style="display:none">
+            <div class="row my-3">
+                <!-- <div class="col-md-12">
+                    <img src="" id="profile-img-tag" width="100px" />
+                </div> -->
+                
+                   
+                <div class="col-md-1 text-center">
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <img src="./assets/img/ic_add.png" alt="" id="sendAttchment">
+                        </label>
+                        <input id="file-input" type="file" />
+                    </div>
+                </div>
+               
+                <div class="col-md-10 text-center">
+                    
+                    
+                    <input type="text" class="inputText form-control" placeholder="Type Message Here..." id="typeMessage"> 
+                </div>
+                <div class="col-md-1 text-center">
+                    <img src="./assets/img/ic_send.png" alt="" id="sendMessage">
+                </div>
+            </div>
+        </div><!--END CHAT MESSAGE SEND SECTION -->
+        <!--************ VOICE CALL WRAPPER********** -->
+        <div class="voice-wrapper">
+            <div class="voiceCallUserImg">
+                <img src="./assets/img/placeholder-female-square.png" alt="" width="140px" height="140px" style="border-radius: 50%" class="my-5">
+                <h3 class="text-center text-capitalize text-white mb-5" id="voiceCallUserName"></h3>
+                <h2><time class="text-white">00:00:00</time></h2>
+                <video id="localVideo" style="visibility: visible"></video>
+                
+            </div>    
+            <div class="voiceCallIconsWrapper mt-5">
+                <img src="./assets/img/ic_mute.png" alt="mute" class="cursor" id="muteAudio">
+                <img src="./assets/img/ic_end_cal.png" alt="end call" id="endCall" class="cursor">
+                <img src="./assets/img/ic_switch_video.png" alt="switch video" class="cursor">
+            </div>
+            
+        </div> <!--************END VOICE CALL WRAPPER********** -->
+    </div>
+    <audio id="audio" controls loop style="display: none">
+        <source src="assets/audio/ringtone.mp3" type="audio/mpeg">
+    </audio>
+</div>
+<!-- USER PROFILE MODAL -->
+<div id="modalWrapper">
+    <div class="userProfile-modal"></div>
+    <div class="Modal-Content">
+       <div class="Modal-Header">
+           <h5 class="my-0">PROFILE</h4>
+            <span class="close-modal" onclick="disableModal()">x</span>
+       </div>
+       <div class="Modal-Body py-3">
+           <img src="./assets/img/placeholder-female-square.png" alt="">
+           <br>
+            <div>
+                <label class="form-label">Full Name :</label>
+                <span id="FullName"></span>
+            </div>
+            <br>
+            <div>
+                 <label class="form-label">User Name :</label>
+                 <span id="UserName"></span>
+            </div>
+            <br>
+            <div>
+                <label class="form-label">Email :</label>
+                <span id="UserEmail"></span>
+            </div>
+            <br>
+            <div>
+                <label class="form-label">Phone :</label>
+                <span id="UserPhone"></span>
+          </div>
+           
+       </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./js/renderer.js"></script>
+<script src="./js/tabs.js"></script>
+<script src="js/modal.js"></script>
+
+</body>
+</html>

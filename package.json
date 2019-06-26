@@ -1,0 +1,25 @@
+{
+  "name": "electrontutorial",
+  "productName": "Electron tutorial app",
+  "version": "1.0.0",
+  "description": "Application for electron tutorials",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^5.0.5",
+    "electron-builder": "^20.44.4",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "quickblox": "^2.12.2"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist:linux": "electron-builder --linux"
+  },
+  "author": "zeke.jimenea.wiselysoft@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
+    "electron-log": "^3.0.6",
+    "electron-updater": "^4.0.6"
+  }
+}

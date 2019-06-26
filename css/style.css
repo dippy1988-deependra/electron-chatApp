@@ -1,0 +1,414 @@
+@import url("./global.css");
+/********* login page css **********/
+.login-wrapper{
+    background-image: url('../assets/img/BG_LOGIN.png');
+    height: var(--container-height);
+    width: var( --container-width);
+    max-width: 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-wrapper > div{
+    width: 330px;
+    height: 450px;
+    padding: 20px 10px;
+}
+div > h3{
+    font-size: 24px;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-weight: 400;
+}
+div > p{
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: 300;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+.form-control:focus {
+    border-color: #1a7b9f;
+    box-shadow: inset 0 0px 1px#2ec1a4, 0 0 3px #1a7b9f;
+}
+
+/*********** Chat Page Css ***********/
+.chat-wrapper{
+    display: flex;
+    width: 100%;
+}
+.flex-fixed-width-item {
+    width:320px;
+}
+.chat-section{
+    width: calc(100% - 320px);
+}
+.recentChatsUserDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-bottom: var(--border-color);
+    background-color: #f3f3f3;
+}
+.userName{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 12;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+}
+.userName span:first-child{
+    font-size: var(--username)
+}
+.userName span:last-child{
+    font-size: var(--chatTime)
+}
+.setting-Icon{
+    flex-grow: 1;
+    cursor: pointer;
+}
+.fa{
+    color: #888888;
+    font-size: 20px;
+    text-align: center;
+}
+.recent-chat-list{
+    height: calc(100vh - 70px);
+    
+    background-color: #f3f3f3;
+}
+.chatIcon{
+    font-size:var(--chatTime);
+}
+.chat-message-header{
+    height: 67px;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.video-chat-icon{
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+.chat-message{
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    
+    font-family: var(--font-family);
+}
+.type-message-wrapper{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    height: 67px;
+    border-top:var(--border-color);
+}
+.user-chat-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-color);
+    cursor: pointer;
+}
+.chatuserName{
+    flex-grow: 2;
+    font-size: 16px;
+    font-family: var(--font-family);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width:170px;
+    text-transform: capitalize;
+}
+.time{
+    font-size: 70%;
+}
+.online{
+    height: 45px;
+    width: 45px;
+    border: 3px solid green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+
+}
+.offline{
+    height: 45px;
+    width: 45px;
+    border: 3px solid green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+}
+.chat-blank-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.chat-blank-wrapper div{
+    width: 146px;
+    height: 146px;
+    border: 3px solid green;
+    border-radius: 50%;
+}
+#userName{
+    font-size: 16px;
+    text-transform: capitalize;
+    line-height: 16px;
+    font-family: var(--font-family);
+    
+}
+#loginUserNameDispaly{
+    text-transform: uppercase;
+}
+.last-message{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.last-chat-message{
+    font-size: 12px;
+    color: #8c8c8c;
+    width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#myImg{
+    margin-right: 15px
+}
+
+.chat_people
+{ 
+    overflow:hidden;
+    clear:both;
+}
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+.inbox_chat { height: 550px; overflow-y: scroll;}
+
+.active_chat{ background:#ebebeb;}
+.incoming_msg{
+    margin: 26px 0 26px;
+}
+
+.incoming_msg_img {
+  display: inline-block;
+  width: 6%;
+}
+.received_msg {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    vertical-align: top;
+    min-width: 100px;
+    max-width: 400px;
+    width: auto;
+ }
+ .received_withd_msg p {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.received_withd_msg { width: 100%;}
+.mesgs {
+  float: left;
+  /* padding: 30px 15px 0 25px; */
+  width: 100%;
+}
+
+ .sent_msg p {
+  background: #05728f none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+.outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.sent_msg {
+    float: right;
+    min-width: 100px;
+    max-width: 400px;
+}
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+.messaging { padding: 0 0 50px 0;}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+     cursor: pointer;
+}
+
+
+/****************** VOICE CALL WRAPPER************* */
+#myImg1{
+    cursor: pointer;
+}
+.voice-wrapper{
+position: absolute;
+top: 0px;
+border: 1px solid green;
+width: calc(100% - 320px);
+height: 100vh;
+background-image: url('../assets/img/Call_doctor_DESKTOP_BG.png');
+background-position: center;
+display: none;
+}
+.voiceCallUserImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.voiceCallIconsWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.receiverCallWrapper{
+    background-image: linear-gradient(#2ec1a4, #1a7b9f);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    visibility: hidden;
+}
+video{
+    height: 0px!important;
+    width: 0px!important;
+  }
+  #remoteVideo{
+    height: 0px!important;
+    width: 0px!important;
+  }
+  .logoutBtn{
+    border: none!important;
+    background-color: transparent!important;
+    outline: none!important;
+  }
+  #modalWrapper{
+      display: none;
+  }
+.userProfile-modal{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    background-color: black;
+    opacity: .5;
+    
+}
+.Modal-Content{
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    border-radius: 10px;
+}
+.Modal-Header{
+    height: 50px;
+    border-bottom: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-modal{
+    float: right;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+}
+.Modal-Body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Modal-Body > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.form-label{
+    width: 100px;
+    font-size: 17px;
+}
+.form-label + span{
+    width: 220px;
+    display: inline-block;
+    font-size: 15px;
+    color: #b5b5b5;
+}
+
+
+
