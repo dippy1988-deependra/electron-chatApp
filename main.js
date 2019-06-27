@@ -1,7 +1,7 @@
 const electron = require('electron');
 const{autoUpdater} = require('electron');
-const isDev = require('electron-is-dev');
-// const logger = require('electron-log');
+const log = require('electron-log');
+require('dotenv').config()
  
 
 const app = electron.app;
@@ -11,13 +11,14 @@ const url = require('url')
 const {installApplicationMenu} = require('./js/MenuInstaller')
 
 //Setup Logger
-autoUpdater.logger = require('electron-log');
+autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 
 //Setup Update Events
 
 autoUpdater.on('checking-for-update', () => {
-  console.log('checking for updates...');
+ log.info('checking for updates...');
 });
 
 autoUpdater.on('update-available', (info) => {
@@ -70,12 +71,11 @@ function createWindow () {
   win.on('closed', () => {
     win = null
   })
+  autoUpdater.checkForUpdates();
 }
 
 app.on('ready', function(){
-  if(!isDev){
-    autoUpdater.checkForUpdates();
-  }
+autoUpdater.checkForUpdates();
   createWindow();
   installApplicationMenu();
   

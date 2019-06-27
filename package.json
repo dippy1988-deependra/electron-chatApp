@@ -1,25 +1,58 @@
 {
   "name": "electrontutorial",
   "productName": "Electron tutorial app",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "Application for electron tutorials",
   "main": "main.js",
-  "devDependencies": {
-    "electron": "^5.0.5",
-    "electron-builder": "^20.44.4",
-    "jquery": "^3.4.1",
-    "moment": "^2.24.0",
-    "quickblox": "^2.12.2"
-  },
+  "repository": "https://github.com/dippy1988-deependra/electron-chatApp",
   "scripts": {
     "start": "electron .",
-    "dist:linux": "electron-builder --linux"
+    "pack": "build --dir",
+    "dist": "build",
+    "publish": "build -p always"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "mac": {
+      "category": "medical",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "dippy1988-deependra",
+        "repo": "electron-chatApp",
+        "token": "9d2713207b69c05eb65c6996ec87507283597ce2"
+      }
+    ]
   },
   "author": "zeke.jimenea.wiselysoft@gmail.com",
   "license": "ISC",
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "electron-builder": "^20.44.4",
+    "electron-is-dev": "^1.1.0"
+  },
   "dependencies": {
-    "electron-is-dev": "^1.1.0",
+    "dotenv": "^8.0.0",
     "electron-log": "^3.0.6",
-    "electron-updater": "^4.0.6"
+    "electron-updater": "^4.0.6",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "node-env-file": "^0.1.8",
+    "quickblox": "^2.12.2"
   }
 }
