@@ -1,7 +1,7 @@
 {
   "name": "electrontutorial",
   "productName": "Electron tutorial app",
-  "version": "2.0.0",
+  "version": "1.1.1",
   "description": "Application for electron tutorials",
   "main": "main.js",
   "repository": "https://github.com/dippy1988-deependra/electron-chatApp",
