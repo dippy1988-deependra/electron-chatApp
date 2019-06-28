@@ -1,15 +1,14 @@
 {
-  "name": "electrontutorial",
-  "productName": "Electron tutorial app",
-  "version": "3.0.0",
+  "name": "medical",
+  "productName": "TMS",
+  "version": "1.0.0",
   "description": "Application for electron tutorials",
   "main": "main.js",
-  "repository": "https://github.com/dippy1988-deependra/electron-chatApp",
   "scripts": {
     "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build",
-    "publish": "build -p always"
+    "pack": "electron-builder --dir",
+    "dist:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
   },
   "build": {
     "appId": "com.example.app",
@@ -18,38 +17,43 @@
       "target": [
         "zip",
         "dmg"
-      ]
+      ],
+      "icon": "build/icon.ico"
     },
     "linux": {
       "target": [
         "AppImage",
-        "deb"
-      ]
+        "deb",
+        "snap"
+      ],
+      "icon": "build/icon.png"
     },
     "win": {
-      "target": "squirrel",
-      "icon": "build/icon.ico"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "dippy1988-deependra",
-        "repo": "electron-chatApp",
-        "token": "9d2713207b69c05eb65c6996ec87507283597ce2"
-      }
-    ]
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ],
+          "icon": "build/icon.ico"
+        }
+      ]
+    }
   },
-  "author": "zeke.jimenea.wiselysoft@gmail.com",
+  "author": "zeke <zeke.jimenea.wiselysoft@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
+    "electron-builder-squirrel-windows": "^21.0.3",
     "electron-is-dev": "^1.1.0"
   },
   "dependencies": {
     "dotenv": "^8.0.0",
     "electron-log": "^3.0.6",
     "electron-updater": "^4.0.6",
+    "gh-got": "^8.1.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "node-env-file": "^0.1.8",

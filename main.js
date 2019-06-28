@@ -1,5 +1,5 @@
 const electron = require('electron');
-const{autoUpdater} = require('electron');
+const { autoUpdater } = require("electron-updater")
 const log = require('electron-log');
 require('dotenv').config()
  
