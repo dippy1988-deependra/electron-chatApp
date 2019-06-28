@@ -3,6 +3,7 @@
   "productName": "TMS",
   "version": "1.1.0",
   "description": "Application for electron tutorials",
+  "repository": "https://github.com/dippy1988-deependra/electron-chatApp",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -27,7 +28,6 @@
       ],
       "icon": "build/icon.png"
     }
-    
   },
   "author": "zeke.jimenea.wiselysoft@gmail.com",
   "license": "ISC",
@@ -45,6 +45,7 @@
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "node-env-file": "^0.1.8",
-    "quickblox": "^2.12.2"
+    "quickblox": "^2.12.2",
+    "update-electron-app": "^1.4.2"
   }
 }
