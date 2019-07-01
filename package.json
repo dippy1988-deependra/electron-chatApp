@@ -1,14 +1,14 @@
 {
   "name": "medical",
   "productName": "TMS",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Application for electron tutorials",
   "repository": "https://github.com/dippy1988-deependra/electron-chatApp",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "build": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
@@ -40,6 +40,7 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "electron-log": "^3.0.6",
+    "electron-osx-sign": "^0.4.11",
     "electron-updater": "^4.0.6",
     "gh-got": "^8.1.0",
     "jquery": "^3.4.1",

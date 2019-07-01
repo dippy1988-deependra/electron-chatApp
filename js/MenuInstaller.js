@@ -1,11 +1,13 @@
 const {app, Menu} = require('electron')
 const {viewProfile} = require('../js/viewProfile')
+const { autoUpdater } = require("electron-updater")
 const template = [
     {
       label:'Tms',
       submenu:[
         {
-          label:'Check For Updates'
+          label:'Check For Updates',
+         
         },
         {
           type:'separator'
