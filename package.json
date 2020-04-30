@@ -43,7 +43,7 @@
     "electron-osx-sign": "^0.4.11",
     "electron-updater": "^4.0.6",
     "gh-got": "^8.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "node-env-file": "^0.1.8",
     "quickblox": "^2.12.2",
