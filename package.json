@@ -44,7 +44,7 @@
     "electron-updater": "^4.0.6",
     "gh-got": "^8.1.0",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-env-file": "^0.1.8",
     "quickblox": "^2.12.2",
     "update-electron-app": "^1.4.2"
